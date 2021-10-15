@@ -3,8 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, Route, Router, Switch } from 'react-router-dom';
 import './App.css';
 import Alert from './components/Alert';
+import PrivateRoute from './components/PrivateRoute';
 import logo from './logo.svg';
 import Login from './pages/Login';
+import Search from './pages/Search';
 import { alert } from './redux/actions/alert';
 import { history } from './redux/history';
 
@@ -26,6 +28,7 @@ function App() {
 
         <Router history={history}>
           <Switch>
+            <PrivateRoute exact path="/" component={Search} />
             <Route path="/login" component={Login} />
             <Redirect from="*" to="/" />
           </Switch>

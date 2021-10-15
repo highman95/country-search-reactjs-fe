@@ -5,6 +5,13 @@ export const userActions = {
   LOGOUT: 'LOGOUT',
 }
 
+export const countryActions = {
+  SEARCH_REQUEST: 'SEARCH_REQUEST',
+  SEARCH_SUCCESS: 'SEARCH_SUCCESS',
+  SEARCH_FAILURE: 'SEARCH_FAILURE',
+  SEARCH_CLEARED: 'SEARCH_CLEARED',
+}
+
 export const alertActions = {
   SUCCESS: 'ALERT_SUCCESS',
   ERROR: 'ALERT_ERROR',
