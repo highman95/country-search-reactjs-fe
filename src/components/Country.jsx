@@ -23,7 +23,7 @@ const Country = ({ countryInfo }) => {
 
           <div className="card-footer">
             <small className="text-muted">
-              <strong>Region:</strong> {region}
+              {region}
             </small>
           </div>
         </div>
