@@ -1,12 +1,12 @@
 import { countryActions } from "../action-types";
-import { getCountriesByName as getCountriesByNameService } from "../service/country";
+import * as countryService from "../service/country";
 import { alert } from "./alert";
 
 export function getCountriesByName(name) {
   return dispatch => {
     dispatch(request({ name }));
 
-    getCountriesByNameService(name)
+    countryService.getCountriesByName(name)
       .then(countries => {
         dispatch(success(countries));
       }, error => {

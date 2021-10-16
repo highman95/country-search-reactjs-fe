@@ -1,15 +1,12 @@
 import { userActions } from "../action-types";
-import {
-  authenticate as authenticationService,
-  logout as logoutService
-} from "../service/user";
+import * as userService from "../service/user";
 import { alert } from "./alert";
 
 export function authenticate(username, password) {
   return dispatch => {
     dispatch(request({ username }));
 
-    authenticationService(username, password)
+    userService.authenticate(username, password)
       .then(user => {
         dispatch(success(user));
       }, error => {
@@ -24,6 +21,6 @@ export function authenticate(username, password) {
 }
 
 export function logout() {
-  logoutService();
+  userService.logout();
   return { type: userActions.LOGOUT };
 }
