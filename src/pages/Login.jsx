@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Redirect, useLocation } from 'react-router-dom';
 import { authenticate, logout } from '../redux/actions/user';
 import "./Login.css";
 
@@ -11,8 +12,10 @@ const Login = () => {
   const [submitted, setSubmitted] = useState(false);
 
   const { username, password } = credentials;
-  const loggingIn = useSelector(state => state.users0.loggingIn);
+  const { loggingIn, loggedIn = false } = useSelector(state => state.users0);
+
   const dispatch = useDispatch();
+  const location = useLocation();
 
   useEffect(() => {
     dispatch(logout());// reset login status
@@ -38,6 +41,13 @@ const Login = () => {
     if (username && password) {
       dispatch(authenticate(username, password));
     }
+  }
+
+  if (loggedIn) {
+    const { from } = location.state || { from: { pathname: "/" } };
+    return (
+      <Redirect /* push */ to={from} />
+    );
   }
 
   return (

@@ -1,5 +1,4 @@
 import { userActions } from "../action-types";
-import { history } from "../history";
 import {
   authenticate as authenticationService,
   logout as logoutService
@@ -13,7 +12,6 @@ export function authenticate(username, password) {
     authenticationService(username, password)
       .then(user => {
         dispatch(success(user));
-        history.push('/');
       }, error => {
         dispatch(failure(error.toString()));
         dispatch(alert().error(error?.toString()));

@@ -28,7 +28,7 @@ const Search = () => {
 
   return (
     <div className="col-lg-8 offset-lg-2x">
-      <form className="row g-3 mb-4" onSubmit={handleSubmit}>
+      <form className="row g-3" onSubmit={handleSubmit}>
         <div className="col-12">
           <input
             type="text"
@@ -41,7 +41,7 @@ const Search = () => {
         </div>
       </form>
 
-      <div className="row row-cols-1 row-cols-md-4 g-4">
+      <div className="row row-cols-1 row-cols-md-4 mt-1 mb-4 g-4">
         {countries?.map((countryInfo, i) => (
           <Country key={i} countryInfo={countryInfo} />
         ))}
