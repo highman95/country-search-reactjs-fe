@@ -1,6 +1,6 @@
 import { userActions } from "../action-types";
 import * as userService from "../service/user";
-import { alert } from "./alert";
+import * as alert from "./alert";
 
 export function authenticate(username, password) {
   return dispatch => {
@@ -11,7 +11,7 @@ export function authenticate(username, password) {
         dispatch(success(user));
       }, error => {
         dispatch(failure(error.toString()));
-        dispatch(alert().error(error?.toString()));
+        dispatch(alert.error(error?.toString()));
       });
   };
 

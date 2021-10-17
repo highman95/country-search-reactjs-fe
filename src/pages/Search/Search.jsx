@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Country from "../components/Country";
-import { getCountriesByName } from "../redux/actions/country";
+import Country from "../../components/Country";
+import { getCountriesByName } from "../../redux/actions/country";
 import './Search.css'
 
 const Search = () => {
@@ -14,8 +14,6 @@ const Search = () => {
   useEffect(() => {
     setSubmitted(false);
   }, [countries]);
-
-  const handleChange = (e) => setName(e.target.value);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,8 +33,8 @@ const Search = () => {
             name="name"
             className="form-control form-control-lg" id="country-name"
             placeholder="Enter full or abbreviated name of a country e.g. AUS"
-            onChange={handleChange}
-            required={true} disabled={submitted}
+            onChange={(e) => setName(e.target.value)}
+            required={true} disabled={submitted} autoFocus
           />
         </div>
       </form>

@@ -9,7 +9,7 @@ const Country = ({ countryInfo }) => {
         <div className="card h-100">
           <div className="card-body">
             <h5 className="card-title">{name}</h5>
-            <p className="card-text">
+            <p className="card-text small">
               <span className="text-info">
                 <strong>Calling-Codes:</strong>
               </span>

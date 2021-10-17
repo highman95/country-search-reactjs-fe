@@ -1,13 +1,21 @@
 import { alertActions } from "../action-types";
 
-export function alert() {
+export function success(message) {
   return {
-    success,
-    error,
-    clear
+    type: alertActions.SUCCESS,
+    message
   }
+}
 
-  function success(message) { return { type: alertActions.SUCCESS, message } }
-  function error(message) { return { type: alertActions.ERROR, message } }
-  function clear() { return { type: alertActions.CLEAR } }
+export function error(message) {
+  return {
+    type: alertActions.ERROR,
+    message
+  }
+}
+
+export function clear() {
+  return {
+    type: alertActions.CLEAR
+  }
 }

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  BrowserRouter as Router, Redirect, Route, Switch, useHistory
+  BrowserRouter as Router, Redirect, Route, Switch
 } from 'react-router-dom';
 import './App.css';
 import Alert from './components/Alert';
@@ -9,20 +9,19 @@ import PrivateRoute from './components/PrivateRoute';
 import logo from './logo.svg';
 import Login from './pages/Login';
 import Search from './pages/Search';
-import { alert } from './redux/actions/alert';
+import * as alert from './redux/actions/alert';
 
 function App() {
   const alerts0 = useSelector(state => state.alerts0);
-  const history = useHistory();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(alert().clear());// clear alert on location change
-  }, [dispatch, history]);
+    dispatch(alert.clear());// clear alert on location change
+  }, [dispatch]);
 
   return (
     <div className="App">
-      <header className="App-header">
+      <div className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Alert content={alerts0} />
 
@@ -33,7 +32,7 @@ function App() {
             <Redirect from="*" to="/" />
           </Switch>
         </Router>
-      </header>
+      </div>
     </div>
   );
 }
