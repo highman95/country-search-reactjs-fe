@@ -1,3 +1,4 @@
+import * as appSec from "../crypto";
 import { baseUrl, headers } from "./api";
 
 export function authenticate(username, password) {
@@ -9,7 +10,7 @@ export function authenticate(username, password) {
     .then(user => {
       // store user details and jwt token in local storage
       // to keep user logged in between page refreshes
-      localStorage.setItem('user', JSON.stringify(user.data));
+      appSec.encryptAndStore(user.data);
       return user.data;
     });
 }

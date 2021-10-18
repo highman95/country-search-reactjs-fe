@@ -1,6 +1,7 @@
 import { userActions } from "../action-types";
+import * as appSec from "../crypto";
 
-let user = JSON.parse(localStorage.getItem('user'));
+let user = appSec.decryptAndReturn();
 const initialState = user ? {
   loggedIn: true, user
 } : {};
