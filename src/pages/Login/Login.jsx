@@ -37,8 +37,8 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setSubmitted(true);
     if (username && password) {
+      setSubmitted(true);
       dispatch(authenticate(username, password));
     }
   }

@@ -18,8 +18,8 @@ const Search = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setSubmitted(true);
     if (name && name.trim()) {
+      setSubmitted(true);
       dispatch(getCountriesByName(name));
     }
   }
