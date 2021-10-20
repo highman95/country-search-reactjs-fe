@@ -2,9 +2,7 @@ import { userActions } from "../action-types";
 import * as appSec from "../crypto";
 
 let user = appSec.decryptAndReturn();
-const initialState = user ? {
-  loggedIn: true, user
-} : {};
+const initialState = user ? { loggedIn: true, user } : {};
 
 export const users = (state = initialState, action) => {
   switch (action.type) {

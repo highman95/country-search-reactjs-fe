@@ -1,7 +1,6 @@
 import * as appSec from "../crypto";
 
-export const baseUrl = process.env.NODE_ENV === 'production'
-  ? 'https://country-search-desk.herokuapp.com' : 'http://localhost:3502';
+export const baseUrl = process.env.REACT_APP_BACKEND_API_URL || 'http://localhost:3502';
 
 export function headers() {
   const { token } = appSec.decryptAndReturn() || {};

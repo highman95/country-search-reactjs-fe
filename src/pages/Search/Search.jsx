@@ -25,25 +25,27 @@ const Search = () => {
   }
 
   return (
-    <div className="col-lg-8 offset-lg-2x">
-      <form className="row g-3" onSubmit={handleSubmit}>
-        <div className="col-12">
-          <input
-            type="text"
-            name="name"
-            className="form-control form-control-lg" id="country-name"
-            placeholder="Enter full or abbreviated name of a country e.g. AUS"
-            onChange={(e) => setName(e.target.value)}
-            required={true} disabled={submitted} autoFocus
-          />
-        </div>
-      </form>
+    <div className="col-lg-12 offset-lg-2x mt-2">
+      <main className="form-search-country">
+        <form name="form" className="row g-3" onSubmit={handleSubmit}>
+          <div className="col-12">
+            <input
+              type="search"
+              name="name"
+              className="form-control form-control-lg" id="country-name"
+              placeholder="Enter full or abbreviated name of a country e.g. AUS"
+              onChange={(e) => setName(e.target.value)}
+              required={true} disabled={submitted} autoFocus
+            />
+          </div>
+        </form>
 
-      <div className="row row-cols-1 row-cols-md-4 mt-1 mb-4 g-4">
-        {countries?.map((countryInfo, i) => (
-          <Country key={i} countryInfo={countryInfo} />
-        ))}
-      </div>
+        <div className="row row-cols-2 row-cols-md-4 mt-1 mb-4 g-4">
+          {countries?.map((countryInfo, i) => (
+            <Country key={i} countryInfo={countryInfo} />
+          ))}
+        </div>
+      </main>
     </div>
   );
 }

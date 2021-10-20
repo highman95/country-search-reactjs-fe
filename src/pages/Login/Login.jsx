@@ -51,8 +51,8 @@ const Login = () => {
   }
 
   return (
-    <div className="col-lg-4 offset-lg-2x">
-      <h2>Login</h2>
+    <div className="col-lg-4 offset-lg-8 mt-5">
+      {/* <h2>Login</h2> */}
 
       <main className="form-signin">
         <form name="form" onSubmit={handleSubmit}>
@@ -65,7 +65,7 @@ const Login = () => {
               onChange={handleChange} disabled={submitted}
               placeholder="john.doe@example.com"
             />
-            <label htmlFor="floating-username">Username</label>
+            <label htmlFor="floating-username" className="text-dark">Username</label>
             {submitted && !username &&
               <div className="invalid-feedback">Username is required</div>
             }
@@ -80,19 +80,19 @@ const Login = () => {
               onChange={handleChange} disabled={submitted}
               placeholder="Password"
             />
-            <label htmlFor="floating-password">Password</label>
+            <label htmlFor="floating-password" className="text-dark">Password</label>
             {submitted && !password &&
               <div className="invalid-feedback">Password is required</div>
             }
           </div>
 
-          <div className="checkbox mb-3">
-            <label>
+          <div className="checkbox mb-3 text-end">
+            <label style={{ cursor: 'pointer' }}>
               <input type="checkbox" value="remember-me" /> Remember me
             </label>
           </div>
 
-          <button className="w-100 btn btn-lg btn-primary" type="submit">
+          <button className="w-100 btn btn-lg btn-info" type="submit">
             {loggingIn && <span className="spinner-border spinner-border-sm mr-1"></span>}
             Sign in
           </button>
