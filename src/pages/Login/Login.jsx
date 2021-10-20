@@ -5,15 +5,13 @@ import { authenticate, logout } from '../../redux/actions/user';
 import "./Login.css";
 
 const Login = () => {
-  const [credentials, setCredentials] = useState({
+  const [{ username, password }, setCredentials] = useState({
     username: '',
     password: ''
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const { username, password } = credentials;
   const { loggingIn, loggedIn = false } = useSelector(state => state.users0);
-
   const dispatch = useDispatch();
   const location = useLocation();
 
@@ -37,8 +35,8 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    setSubmitted(true);
     if (username && password) {
-      setSubmitted(true);
       dispatch(authenticate(username, password));
     }
   }
@@ -62,13 +60,10 @@ const Login = () => {
               className={`form-control ${submitted && !username ? 'is-invalid' : ''}`}
               name="username"
               value={username}
-              onChange={handleChange} disabled={submitted}
+              onChange={handleChange} disabled={loggingIn}
               placeholder="john.doe@example.com"
             />
             <label htmlFor="floating-username" className="text-dark">Username</label>
-            {submitted && !username &&
-              <div className="invalid-feedback">Username is required</div>
-            }
           </div>
 
           <div className="form-floating">
@@ -77,13 +72,10 @@ const Login = () => {
               className={`form-control ${submitted && !password ? 'is-invalid' : ''}`}
               name="password"
               value={password}
-              onChange={handleChange} disabled={submitted}
+              onChange={handleChange} disabled={loggingIn}
               placeholder="Password"
             />
             <label htmlFor="floating-password" className="text-dark">Password</label>
-            {submitted && !password &&
-              <div className="invalid-feedback">Password is required</div>
-            }
           </div>
 
           <div className="checkbox mb-3 text-end">

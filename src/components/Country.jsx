@@ -9,9 +9,9 @@ const Country = ({ countryInfo }) => {
         <div className="card h-100">
           <div className="card-body">
             <h5 className="card-title">{name}</h5>
-            <section className="card-text small">
+            <section className="card-text">
               <span className="text-info">
-                <strong>Calling-Codes:</strong>
+                <strong>Calling Codes:</strong>
               </span>
               <ul>
                 {callingCodes?.map((callingCode, i) => (
@@ -21,7 +21,7 @@ const Country = ({ countryInfo }) => {
             </section>
           </div>
 
-          <div className="card-footer">
+          <div className="card-footer text-end">
             <small className="text-muted">
               {region}
             </small>

@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import logo from '../logo.svg';
 
 const Header = ({ onLogout }) => {
-  const users0 = useSelector(state => state.users0);
+  const { loggedIn } = useSelector(state => state.users0);
 
   return (
     <div className="d-flex w-100 h-100 px-5 py-2 mx-auto flex-column bg-info mb-4">
@@ -21,7 +21,7 @@ const Header = ({ onLogout }) => {
             <NavLink exact to="/faqs" className="nav-link" activeClassName="active">
               FAQs
             </NavLink>
-            {users0?.loggedIn ? (
+            {loggedIn ? (
               <Link to="/" className="nav-link" onClick={() => onLogout()}>
                 Sign Out
               </Link>

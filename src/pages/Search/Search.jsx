@@ -8,7 +8,7 @@ const Search = () => {
   const [name, setName] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
-  const countries = useSelector(state => state.countries0.countries);
+  const { countries, loading } = useSelector(state => state.countries0);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -18,8 +18,8 @@ const Search = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    setSubmitted(true);
     if (name && name.trim()) {
-      setSubmitted(true);
       dispatch(getCountriesByName(name));
     }
   }
@@ -32,10 +32,11 @@ const Search = () => {
             <input
               type="search"
               name="name"
-              className="form-control form-control-lg" id="country-name"
+              className={`form-control form-control-lg ${submitted && !name ? 'is-invalid' : ''}`}
+              id="country-name"
               placeholder="Enter full or abbreviated name of a country e.g. AUS"
               onChange={(e) => setName(e.target.value)}
-              required={true} disabled={submitted} autoFocus
+              required={true} disabled={loading} autoFocus
             />
           </div>
         </form>
