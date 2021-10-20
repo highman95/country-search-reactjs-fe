@@ -16,7 +16,10 @@ function App() {
   const alerts0 = useSelector(state => state.alerts0);
   const dispatch = useDispatch();
 
-  const handleLogout = () => dispatch(user.logout())
+  const handleLogout = () => {
+    dispatch(alert.clear());// clear notifications
+    dispatch(user.logout());
+  }
 
   useEffect(() => {
     dispatch(alert.clear());// clear alert on location change
