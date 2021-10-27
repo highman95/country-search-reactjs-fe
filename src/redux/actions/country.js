@@ -4,6 +4,7 @@ import * as alert from "./alert";
 
 export function getCountriesByName(name) {
   return dispatch => {
+    dispatch(alert.clear());
     dispatch(request({ name }));
 
     countryService.getCountriesByName(name)

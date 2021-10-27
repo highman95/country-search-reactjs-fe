@@ -1,5 +1,5 @@
 import * as appSec from "../crypto";
-import { baseUrl, headers } from "./api";
+import { baseUrl, headers } from "../api";
 
 export function authenticate(username, password) {
   return fetch(`${baseUrl}/api/v1/login`, {

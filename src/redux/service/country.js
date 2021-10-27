@@ -1,4 +1,4 @@
-import { baseUrl, headers } from "./api";
+import { baseUrl, headers } from "../api";
 import { handleResponse } from "./user";
 
 export function getCountriesByName(name) {

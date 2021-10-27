@@ -4,6 +4,7 @@ import * as alert from "./alert";
 
 export function authenticate(username, password) {
   return dispatch => {
+    dispatch(alert.clear());
     dispatch(request({ username }));
 
     userService.authenticate(username, password)
