@@ -1,6 +1,6 @@
 import { alertActions } from "../action-types";
 
-export const alerts = (state = { isError: false }, action) => {
+export const alerts = (state = { isError: false }, action = { type: "" }) => {
   switch (action.type) {
     case alertActions.SUCCESS:
       return {

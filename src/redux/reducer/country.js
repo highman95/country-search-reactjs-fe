@@ -5,7 +5,7 @@ const initialState = {
   countries: [],
 }
 
-export const countries = (state = initialState, action) => {
+export const countries = (state = initialState, action = { type: "" }) => {
   switch (action.type) {
     case countryActions.SEARCH_REQUEST:
       return {

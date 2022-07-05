@@ -4,7 +4,7 @@ import * as appSec from "../crypto";
 let user = appSec.decryptAndReturn();
 const initialState = user ? { loggedIn: true, user } : {};
 
-export const users = (state = initialState, action) => {
+export const users = (state = initialState, action = { type: "" }) => {
   switch (action.type) {
     case userActions.LOGIN_REQUEST:
       return {

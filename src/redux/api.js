@@ -4,12 +4,12 @@ export const baseUrl = process.env.REACT_APP_BACKEND_API_URL || 'http://localhos
 
 export function headers() {
   const { token } = appSec.decryptAndReturn() || {};
-  const headers = {
+  const headers0 = {
     'Content-Type': 'application/json',
   };
 
   return token ? {
-    ...headers,
+    ...headers0,
     'Authorization': 'Bearer ' + token
-  } : headers;
+  } : headers0;
 }
